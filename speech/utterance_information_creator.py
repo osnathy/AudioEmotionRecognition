@@ -24,10 +24,9 @@ def build_utterance_information(session_path):
     utterance_information_dict = {}
     path_to_emo_evaluation = session_path + '/dialog/EmoEvaluation/'
     path_to_wav = session_path + '/sentences/wav/'
-    count = 0
+
     for emotion_file in [f for f in listdir(path_to_emo_evaluation) if isfile(join(path_to_emo_evaluation, f))]:
-        print(count)
-        count += 1
+
         for utterance in (get_utter_info_from_eval_file(path_to_emo_evaluation + emotion_file)):
             if ((utterance[3] == 'neu')
                 or (utterance[3] == 'hap')

@@ -9,6 +9,7 @@ import numpy as np
 
 emotions = {'ang': np.int32(0), 'exc': np.int32(1), 'fru': np.int32(2), 'hap': np.int32(3), 'neu': np.int32(4), 'sad': np.int32(5)}
 
+
 def create_utterance_information_file(sessions_path, to_save_utterance_information_file_name):
     utterance_information_df = pd.DataFrame()
     for k in range(5):
@@ -17,6 +18,7 @@ def create_utterance_information_file(sessions_path, to_save_utterance_informati
 
     with open(to_save_utterance_information_file_name, 'wb') as file:
         pickle.dump(utterance_information_df, file, protocol=pickle.HIGHEST_PROTOCOL)
+    file.close() 
 
 
 def build_utterance_information(session_path):
@@ -26,7 +28,6 @@ def build_utterance_information(session_path):
     path_to_wav = session_path + '/sentences/wav/'
 
     for emotion_file in [f for f in listdir(path_to_emo_evaluation) if isfile(join(path_to_emo_evaluation, f))]:
-
         for utterance in (get_utter_info_from_eval_file(path_to_emo_evaluation + emotion_file)):
             if ((utterance[3] == 'neu')
                 or (utterance[3] == 'hap')
@@ -42,6 +43,7 @@ def build_utterance_information(session_path):
                 utterance_information_df = utterance_information_df.append(utterance_information_dict, ignore_index=True)
 
     return utterance_information_df
+
 
 def get_utter_info_from_eval_file(input_file):
     pattern = re.compile('[\[]*[0-9]*[.][0-9]*[ -]*[0-9]*[.][0-9]*[\]][\t][a-z0-9_]*[\t][a-z]{3}[\t][\[][0-9]*[.][0-9]*[, ]+[0-9]*[.][0-9]*[, ]+[0-9]*[.][0-9]*[\]]',re.IGNORECASE)

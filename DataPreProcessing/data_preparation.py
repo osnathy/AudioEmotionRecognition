@@ -10,10 +10,10 @@ import numpy as np
 emotions = {'ang': np.int32(0), 'exc': np.int32(1), 'fru': np.int32(2), 'hap': np.int32(3), 'neu': np.int32(4), 'sad': np.int32(5)}
 
 
-def create_utterance_information_file(sessions_path, to_save_utterance_information_file_name):
+def utterance_data_preparation(sessions_path, to_save_utterance_information_file_name):
     utterance_information_df = pd.DataFrame()
     for k in range(5):
-        df = build_utterance_information("%s%s" % (sessions_path, k + 1))
+        df = data_preparation("%s%s" % (sessions_path, k + 1))
         utterance_information_df = utterance_information_df.append(df)
 
     with open(to_save_utterance_information_file_name, 'wb') as file:
@@ -21,7 +21,7 @@ def create_utterance_information_file(sessions_path, to_save_utterance_informati
     file.close() 
 
 
-def build_utterance_information(session_path):
+def data_preparation(session_path):
     utterance_information_df = pd.DataFrame()
     utterance_information_dict = {}
     path_to_emo_evaluation = session_path + '/dialog/EmoEvaluation/'

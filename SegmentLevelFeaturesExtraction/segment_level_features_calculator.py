@@ -5,7 +5,7 @@ from python_speech_features import mfcc
 import Signal_Analysis.features.signal as sig
 
 
-def build_segment_level_features(utterance_information_data_path, number_of_segments, to_save_segment_level_features_file_name):
+def calculate_segment_level_features(utterance_information_data_path, number_of_segments, to_save_segment_level_features_file_name):
     tmp_idx = 0
     dataset = np.zeros([1, 652])
 

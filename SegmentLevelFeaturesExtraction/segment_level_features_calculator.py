@@ -33,7 +33,7 @@ def build_matrix_features(dataset, number_of_segments, tmp_idx, utterance_inform
 
 # TODO-NOT READY!!
 def pitch_based_features(signal, rate, win_length, hop_length):
-    mean_hnr = sig.get_HNR(signal, rate);
+    mean_hnr = sig.get_HNR(signal, rate)
     return mean_hnr
 
 def calculate_audio_features(signal, rate, segment_size):

@@ -50,7 +50,7 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
         
         Output : 
         
-    5. Train Classifier model
+    5. Train Classifier model (in our implementation we train Random Forest Classifier instead of Extream Machine)
     
         Run execute_classifier.py
         

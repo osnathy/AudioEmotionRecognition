@@ -8,7 +8,7 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
 
 
 
-##Setup:
+## Setup:
 
  1. Python3.7
  
@@ -21,7 +21,8 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
     https://sail.usc.edu/iemocap/
     
  
-##How it works ?
+## How it works ?
+
  ######The Project training has 5 main stages as described below:
 
     1. Data preparation

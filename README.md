@@ -56,6 +56,6 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
     
         Run execute_classifier.py
         
-        Output : 
+        Output : random_forest_model.pickel
         
  

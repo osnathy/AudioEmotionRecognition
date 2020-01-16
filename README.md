@@ -17,7 +17,9 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
  2. Data 
  
     We used the IEMOCAP database 
+    
     Inorder to use it please ask permissions from :
+    
     https://sail.usc.edu/iemocap/
     
  

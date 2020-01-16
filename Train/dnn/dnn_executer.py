@@ -5,12 +5,14 @@ import numpy as np
 from keras.layers import Dense
 from keras.models import Sequential
 from sklearn.model_selection import train_test_split
+from keras.callbacks import History
+from keras.callbacks import EarlyStopping
 
 from visualization.data_visualization import show_loss, show_accuracy
 
 
 def run_dnn(segment_level_features_file_name_to_load):
-    training_epoch = 1
+    training_epoch = 10
     batch_size = 128
 
     with open(segment_level_features_file_name_to_load, 'rb') as handle:
@@ -21,15 +23,20 @@ def run_dnn(segment_level_features_file_name_to_load):
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
     print("==================================================================")
+    history = History()
 
     model = get_model()
-
     one_hot_labels = keras.utils.to_categorical(y_train, num_classes=6)
+    es = EarlyStopping(monitor='val_loss', mode='min', verbose=1)
 
-    history = model.fit(x_train, one_hot_labels,
+    records = model.fit(x_train, one_hot_labels,
                         batch_size=batch_size,
                         nb_epoch=training_epoch,
-                        validation_split=0.30)
+                        validation_split=0.30,
+                        verbose=1,
+                        callbacks=[history, es])
+
+    print(records.history.keys())
 
     # save the model
     model_json = model.to_json()
@@ -40,13 +47,13 @@ def run_dnn(segment_level_features_file_name_to_load):
     model.save_weights("dnn_model_weights.h5")
 
     # visualisation
-    show_loss(history)
-    show_accuracy(history)
+    show_loss(records)
+    show_accuracy(records)
 
-    # test data
+    # evaluate the  data
     test_one_hot_labels = keras.utils.to_categorical(y_test, num_classes=6)
     accuracy = model.evaluate(x_test, test_one_hot_labels, batch_size=batch_size)
-    print("The test accuracy: ", accuracy)
+    print(accuracy)
 
 
 # todo: 1. add the statistical layer before compile
@@ -69,3 +76,5 @@ def get_model():
     print(model.summary())
 
     return model
+
+

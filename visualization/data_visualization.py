@@ -1,22 +1,21 @@
 import matplotlib.pyplot as plt
 
 
-def show_loss(history):
+def show_loss(records):
     plt.title('Loss')
-    plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.ylabel('loss')
-    plt.xlabel('epoch')
+    plt.plot(records.history['loss'], label='train')
+    plt.plot(records.history['val_loss'], label='validation')
+    plt.legend()
+    plt.savefig("loss")
 
-    plt.legend(['training', 'validation'], loc='upper right')
     plt.show()
 
 
-def show_accuracy(history):
-    plt.title('Keras model accuracy')
-    plt.ylabel('accuracy')
-    plt.xlabel('epoch')
-    plt.plot(history.history['accuracy'])
-    plt.plot(history.history['val_accuracy'])
-    plt.legend(['training', 'validation'], loc='lower right')
+def show_accuracy(records):
+    plt.title('Accuracy')
+    plt.plot(records.history['accuracy'], label='train')
+    plt.plot(records.history['val_accuracy'], label='validation')
+    plt.legend()
+    plt.savefig("accuracy")
     plt.show()
+

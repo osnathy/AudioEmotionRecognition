@@ -56,6 +56,11 @@ def run_dnn(segment_level_features_file_name_to_load):
     print(accuracy)
 
 
+
+    #TODO: CALCULATE  RECALL , PRESESION AND F1 SCORE FOR THE MODEL
+
+
+
 # todo: 1. add the statistical layer before compile
 # todo: 2. its 650 instead of 750 because we didnt calculate the snr features
 def get_model():

@@ -19,3 +19,5 @@ def show_accuracy(records):
     plt.savefig("accuracy")
     plt.show()
 
+
+

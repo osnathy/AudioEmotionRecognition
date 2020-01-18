@@ -23,9 +23,9 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
     https://sail.usc.edu/iemocap/
     
  
-How it works ?
+## How it works ?
  
-1. Training Phase
+####1. Training Phase
 
  The Project training has 5 main stages as described below:
 
@@ -61,7 +61,7 @@ How it works ?
         Output : random_forest_model.pickel
         
              
-2. Prediction Phase
+####2. Prediction Phase
 
     We use Flask for external API
     From Postman execute POST request to:

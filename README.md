@@ -62,26 +62,27 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
         
              
 ### 2. Prediction Phase
-
-    We use Flask for external API
-    From Postman execute POST request to:
+   1.  Run the flask_api.py
     
-    http://localhost:8085/predictor
+   2. From Postman execute POST request to:
     
-    with the jason body:
-    '''
-    {
-      "file_name":"WavFileName.wav"
-    }
-    ''
-    
-    Note: Please save the wav file under the following directory :
-            \Predict\flask\examples
-            
-    The response body will be series of class predection for each audio frame 
-    example : [ 5.0,5.0,5.0,5.0, .... ,5.0]
-    For Next Step : we will add a summary calaculation :)
-            
+        http://localhost:8085/predictor
+        
+        with the jason body:
+        '''
+        {
+          "file_name":"WavFileName.wav"
+        }
+        ''
+        
+        Note: Please save the wav file under the following directory :
+                \Predict\flask\examples
+                
+   3. The response body will be series of class prediction for each audio frame 
+        example : [ 5.0,5.0,5.0,5.0, .... ,5.0]
+        
+        Note: For next step we will add a summary calculation :)
+                
     
         
  

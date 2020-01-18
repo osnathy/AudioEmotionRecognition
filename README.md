@@ -25,7 +25,7 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
  
 ## How it works ?
  
-####1. Training Phase
+### 1. Training Phase
 
  The Project training has 5 main stages as described below:
 
@@ -61,7 +61,7 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
         Output : random_forest_model.pickel
         
              
-####2. Prediction Phase
+### 2. Prediction Phase
 
     We use Flask for external API
     From Postman execute POST request to:
@@ -77,6 +77,10 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
     
     Note: Please save the wav file under the following directory :
             \Predict\flask\examples
+            
+    The response body will be series of class predection for each audio frame 
+    example : [ 5.0,5.0,5.0,5.0, .... ,5.0]
+    For Next Step : we will add a summary calaculation :)
             
     
         

@@ -11,7 +11,7 @@ from keras.callbacks import EarlyStopping
 from visualization.data_visualization import show_loss, show_accuracy
 
 
-def run_dnn(segment_level_features_file_name_to_load):
+def train_dnn(segment_level_features_file_name_to_load):
     training_epoch = 10
     batch_size = 128
 

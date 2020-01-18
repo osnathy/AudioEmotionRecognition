@@ -23,9 +23,11 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
     https://sail.usc.edu/iemocap/
     
  
-## How it works ?
+How it works ?
+ 
+1. Training Phase
 
- ######The Project training has 5 main stages as described below:
+ The Project training has 5 main stages as described below:
 
     1. Data preparation
         
@@ -50,12 +52,32 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
     
         Run execute_statistical_calculation.py
         
-        Output : 
+        Output : NOT ready yet
         
     5. Train Classifier model (in our implementation we train Random Forest Classifier instead of Extream Machine)
     
         Run execute_classifier.py
         
         Output : random_forest_model.pickel
+        
+             
+2. Prediction Phase
+
+    We use Flask for external API
+    From Postman execute POST request to:
+    
+    http://localhost:8085/predictor
+    
+    with the jason body:
+    '''
+    {
+      "file_name":"WavFileName.wav"
+    }
+    ''
+    
+    Note: Please save the wav file under the following directory :
+            \Predict\flask\examples
+            
+    
         
  

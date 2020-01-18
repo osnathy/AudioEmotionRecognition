@@ -2,9 +2,9 @@
 
 References
 
-[1] K. Han, D. Yu, and I. Tashev, "Speech emotion recognition using deep neural network and extreme learning machine," in Proc. Interspeech, 2014.
+    [1] K. Han, D. Yu, and I. Tashev, "Speech emotion recognition using deep neural network and extreme learning machine," in Proc. Interspeech, 2014.
 
-https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-using-deep-neural-network-and-extreme-learning-machine/
+    https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-using-deep-neural-network-and-extreme-learning-machine/
 
 
 
@@ -12,15 +12,15 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
 
  1. Python3.7
  
-      Note : The code was developed in MAC Catalina OS
+        Note : The code was developed in MAC Catalina OS
  
  2. Data 
  
-    We used the IEMOCAP database 
+        We used the IEMOCAP database 
     
-    Inorder to use it please ask permissions from :
+        Inorder to use it please ask permissions from :
     
-    https://sail.usc.edu/iemocap/
+         https://sail.usc.edu/iemocap/
     
  
 ## How it works ?
@@ -62,9 +62,9 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
         
              
 ### 2. Prediction Phase
-   1.  Run the flask_api.py
+    1. Run the flask_api.py
     
-   2. From Postman execute POST request to:
+    2. From Postman execute POST request to:
     
         http://localhost:8085/predictor
         
@@ -78,7 +78,7 @@ https://www.microsoft.com/en-us/research/publication/speech-emotion-recognition-
         Note: Please save the wav file under the following directory :
                 \Predict\flask\examples
                 
-   3. The response body will be series of class prediction for each audio frame 
+     3. The response body will be series of class prediction for each audio frame 
         example : [ 5.0,5.0,5.0,5.0, .... ,5.0]
         
         Note: For next step we will add a summary calculation :)

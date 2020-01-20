@@ -1,6 +1,6 @@
 import os
 import pickle
-
+import numpy as np
 import pandas as pd
 import scipy.io.wavfile
 from Train.segmentLevelFeaturesExtraction.segment_level_features_calculator import calculate_audio_features
@@ -26,6 +26,16 @@ def predict(request):
     # make prediction
     prediction_result = loaded_model.predict(utterance_features)
     print(prediction_result)
+
+
+    # calculate prediction score
+    utterance_index = np.full((matrix_size, 1), 0)
+    frame_label_list = np.full((matrix_size, 1), 2)
+    data = np.concatenate((utterance_features, frame_label_list, utterance_index), axis=1)
+    x = data[:, :650]
+    y = np.take(data, [650], axis=1)
+    score = loaded_model.score(x, y)
+    print(score)
 
     return pd.Series(prediction_result).to_json(orient='values')
 

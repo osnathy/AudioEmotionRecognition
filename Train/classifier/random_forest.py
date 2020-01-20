@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 
 
 def train_random_forest(segment_level_features_file_name_to_load):
+    print("Start open data file . . . ")
     with open(segment_level_features_file_name_to_load, 'rb') as handle:
         data = pickle.load(handle)
 
@@ -16,7 +17,7 @@ def train_random_forest(segment_level_features_file_name_to_load):
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0)
 
     print("Start initiating classifier object....")
-    rf_clf = RandomForestClassifier(n_estimators=500, min_samples_split=25, random_state=0, n_jobs=-1)
+    rf_clf = RandomForestClassifier(n_estimators=1000, max_depth=400, random_state=0, n_jobs=-1)
 
     print("Start fitting . . . ")
     rf_clf.fit(x_train, y_train.ravel())

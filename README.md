@@ -79,10 +79,9 @@ References
                 \Predict\flask\examples
                 
                 
-     3. The response body will be series of class prediction for each audio segment 
-        example : [ 5.0,2.0,5.0,5.0, .... ,2.0]
+     3. The response body will be predicted class for the whole speech 
+        example : [2.0]
         
-        Note: For next step we will add a summary calculation :)
                 
     
         

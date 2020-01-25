@@ -18,14 +18,17 @@ def predict(request):
 
     request_body = pd.Series(request)
 
-    utterance_features, matrix_size = calculate_speech_features(os.path.join(root_path, request_body['file_name']))
 
+    utterance_features, matrix_size = calculate_speech_features(os.path.join(root_path, request_body['file_name']))
+    print("The speech matrix shape is:  ", str(utterance_features.shape))
     # load the model from disk
     loaded_model = pickle.load(open(os.path.join(root_path, 'classification_model/random_forest_model.pickle'), 'rb'))
 
     # make prediction
     prediction_result = loaded_model.predict(utterance_features)
     print(prediction_result)
+
+    print("prediction_result shape: ", str(prediction_result.shape))
 
 
     # calculate prediction score
@@ -35,7 +38,9 @@ def predict(request):
     x = data[:, :650]
     y = np.take(data, [650], axis=1)
     score = loaded_model.score(x, y)
-    print(score)
+
+
+    print("The score: " + str(score))
 
     return pd.Series(prediction_result).to_json(orient='values')
 

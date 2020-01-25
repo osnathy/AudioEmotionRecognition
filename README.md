@@ -52,7 +52,7 @@ References
     
         Run execute_statistical_calculation.py
         
-        Output : NOT ready yet
+        Output : NOT READY YET
         
     5. Train Classifier model (in our implementation we train Random Forest Classifier instead of Extream Machine)
     
@@ -78,8 +78,9 @@ References
         Note: Please save the wav file under the following directory :
                 \Predict\flask\examples
                 
-     3. The response body will be series of class prediction for each audio frame 
-        example : [ 5.0,5.0,5.0,5.0, .... ,5.0]
+                
+     3. The response body will be series of class prediction for each audio segment 
+        example : [ 5.0,2.0,5.0,5.0, .... ,2.0]
         
         Note: For next step we will add a summary calculation :)
                 
